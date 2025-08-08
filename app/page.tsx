@@ -5,6 +5,7 @@ import { FeatureBentoGrid } from "./_components/FeatureBentoGrid";
 import { UserButton, useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function HeroSectionOne() {
   return (
@@ -70,12 +71,11 @@ export default function HeroSectionOne() {
           }}
           className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
         >
-          <button className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
-            Start Free Trial
-          </button>
-          <button className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
-            Watch Demo
-          </button>
+          <Link href={"/dashboard"}>
+            <button className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer">
+              Start Free Trial
+            </button>
+          </Link>
         </motion.div>
 
         {/* Medical Stats Section */}
@@ -184,8 +184,9 @@ export default function HeroSectionOne() {
   );
 }
 
-const Navbar = () => {
+export const Navbar = () => {
   const { user } = useUser();
+  const router = useRouter();
   return (
     <nav className="flex w-full items-center justify-between border-b px-4 py-4">
       <Link href={"/"}>
@@ -198,7 +199,12 @@ const Navbar = () => {
       </Link>
       <div className="flex items-center gap-3">
         {!user ? (
-          <Button className="cursor-pointer">Login</Button>
+          <Button
+            className="cursor-pointer"
+            onClick={() => router.push("/sign-in")}
+          >
+            Login
+          </Button>
         ) : (
           <div className="flex items-center gap-6">
             <UserButton

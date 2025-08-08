@@ -5,10 +5,9 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 const MenuOptions = [
-  { id: 1, name: "Home", path: "/home" },
+  { id: 1, name: "Home", path: "/" },
   { id: 2, name: "History", path: "/history" },
   { id: 3, name: "Pricing", path: "/pricing" },
-  { id: 4, name: "Profile", path: "/profile" },
 ];
 
 const AppHeader = () => {
