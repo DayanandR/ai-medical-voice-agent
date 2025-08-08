@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1754536731674,
+      "tag": "0000_next_dreaming_celestial",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1754558044585,
+      "tag": "0001_broken_hydra",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1754564730801,
+      "tag": "0002_slow_bruce_banner",
+      "breakpoints": true
+    }
+  ]
+}
